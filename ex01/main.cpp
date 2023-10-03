@@ -30,37 +30,60 @@ int	main(void)
 		delete cat2;
 	}*/
 
-	// const Animal*	meta = new Animal();
-	// const Cat*		cat = new Cat();
 	const Dog*		dog = new Dog();
-	const Dog*		dog2;
-
-	dog2 = dog;
-	// std::cout << std::endl;
-	// std::cout << meta->getType() << std::endl;
-	// meta->makeSound();
-	// std::cout << std::endl;
-
-	// std::cout << dog->getType() << std::endl;
 	std::cout << std::endl;
-	dog->getBrain()->setIdea("Am I a dog?", 1);
-	std::cout << dog->getBrain()->getIdea(1) << std::endl;
-	// dog->makeSound();
+	const Dog*		dog2 = new Dog(*dog);
+	std::cout << std::endl;
+	const Dog		dog3(*dog);
+	std::cout << std::endl;
+	Dog		dog4;
 	std::cout << std::endl;
 
-
-	// std::cout << dog2->getType() << std::endl;
-	dog2->getBrain()->setIdea("Am I a cat?", 1);
-	std::cout << dog->getBrain()->getIdea(1) << std::endl;
-	std::cout << dog2->getBrain()->getIdea(1) << std::endl;
-	// dog2->makeSound();
+	//Get Brains Address
+	std::cout << "Dog:  " << dog->getBrain() << std::endl;
+	std::cout << "Dog2: " << dog2->getBrain() << std::endl;
+	std::cout << "Dog3: " << dog3.getBrain() << std::endl;
+	std::cout << "Dog4: " << dog4.getBrain() << std::endl;
+	
+	std::cout << std::endl;
+	// Set Ideas
+	dog->getBrain()->setIdea("Am I a dog 1?", 1);
+	dog->getBrain()->setIdea("what a dog 1", 2);
+	dog2->getBrain()->setIdea("Am I a dog 2?", 1);
+	dog3.getBrain()->setIdea("Am I a dog 3?", 1);
+	dog4.getBrain()->setIdea("Am I a dog 4?", 1);
+	// Get Ideas
+	std::cout << "Dog:  " << dog->getBrain()->getIdea(1) << std::endl;
+	std::cout << "Dog:  " << dog->getBrain()->getIdea(2) << std::endl;
+	std::cout << "Dog2: " << dog2->getBrain()->getIdea(1) << std::endl;
+	std::cout << "Dog3: " << dog3.getBrain()->getIdea(1) << std::endl;
+	std::cout << "Dog4: " << dog4.getBrain()->getIdea(1) << std::endl;
+	
+	std::cout << std::endl;
+	dog4 = *dog;
+	std::cout << std::endl;
+	//Get Brains Address
+	std::cout << "Dog:  " << dog->getBrain() << std::endl;
+	std::cout << "Dog2: " << dog2->getBrain() << std::endl;
+	std::cout << "Dog3: " << dog3.getBrain() << std::endl;
+	std::cout << "Dog4: " << dog4.getBrain() << std::endl;
+	
 	std::cout << std::endl;
 
-	// std::cout << dog->getType() << std::endl;
-	// dog->makeSound();
+	// Get Ideas
+	std::cout << "Dog:  " << dog->getBrain()->getIdea(1) << std::endl;
+	std::cout << "Dog:  " << dog->getBrain()->getIdea(2) << std::endl;
+	std::cout << "Dog2: " << dog2->getBrain()->getIdea(1) << std::endl;
+	std::cout << "Dog3: " << dog3.getBrain()->getIdea(1) << std::endl;
+	std::cout << "Dog4: " << dog4.getBrain()->getIdea(1) << std::endl;
+
+	std::cout << std::endl;
+
+	// dog->getBrain()->setIdea("Am I a cat?", 1);
+	// std::cout << dog->getBrain()->getIdea(1) << std::endl;
+	// std::cout << dog2->getBrain()->getIdea(1) << std::endl;
 	// std::cout << std::endl;
 
-	// delete meta;
-	// delete cat;
 	delete dog;
+	delete dog2;
 }

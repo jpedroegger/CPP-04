@@ -1,7 +1,7 @@
 CC = c++
 RM = rm -rf
 OBJS = Dog.o Cat.o Animal.o Brain.o
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -ggdb3 -std=c++98
 NAME = brain
 
 all: $(OBJS)

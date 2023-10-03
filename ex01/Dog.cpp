@@ -9,7 +9,6 @@ Dog::Dog() {
 Dog::Dog(const Dog &src){
 	std::cout << "Dog copy constructor called." << std::endl; 
 	*this = src;
-	this->brain = new Brain;
 }
 
 Dog&	Dog::operator=(const Dog &rhs){
@@ -17,8 +16,8 @@ Dog&	Dog::operator=(const Dog &rhs){
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
-		this->brain = new Brain;
-		memcpy(this->brain, rhs.brain, sizeof(rhs.brain));
+		delete this->brain;
+		this->brain = new Brain(*rhs.brain);
 	}
 	return *this;
 }

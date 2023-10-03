@@ -11,15 +11,18 @@ Brain::Brain(const Brain &src){
 
 Brain&	Brain::operator=(Brain const &rhs){
 	std::cout << "Brain copy assignment operator called." << std::endl; 
-	// if (this != &rhs)
-	// {
-
-	// }
+	if (this != &rhs)
+	{
+	    for (int i = 0; i < 100; i++) {
+	        this->ideas[i] = rhs.ideas[i];
+	    }
+	}
 	return *this;
 }
 
 Brain::~Brain(){
 	std::cout << "Brain destructor called." << std::endl;
+	// delete this;
 }
 
 std::string	Brain::getIdea(unsigned int n){
