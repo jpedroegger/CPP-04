@@ -22,7 +22,6 @@ Brain&	Brain::operator=(Brain const &rhs){
 
 Brain::~Brain(){
 	std::cout << "Brain destructor called." << std::endl;
-	// delete this;
 }
 
 std::string	Brain::getIdea(unsigned int n){

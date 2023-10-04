@@ -79,11 +79,8 @@ int	main(void)
 
 	std::cout << std::endl;
 
-	// dog->getBrain()->setIdea("Am I a cat?", 1);
-	// std::cout << dog->getBrain()->getIdea(1) << std::endl;
-	// std::cout << dog2->getBrain()->getIdea(1) << std::endl;
-	// std::cout << std::endl;
-
 	delete dog;
 	delete dog2;
 }
+
+

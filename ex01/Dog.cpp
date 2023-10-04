@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog() {
+Dog::Dog() : Animal(){
 	std::cout << "Dog constructor called." << std::endl; 
 	type = "Dog";
 	brain = new Brain();	
@@ -8,6 +8,7 @@ Dog::Dog() {
 
 Dog::Dog(const Dog &src){
 	std::cout << "Dog copy constructor called." << std::endl; 
+	this->brain = new Brain;
 	*this = src;
 }
 
@@ -16,8 +17,7 @@ Dog&	Dog::operator=(const Dog &rhs){
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
-		delete this->brain;
-		this->brain = new Brain(*rhs.brain);
+		(*this->brain) = (*rhs.brain);
 	}
 	return *this;
 }
