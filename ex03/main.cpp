@@ -4,100 +4,92 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
-int	main(void) {
+int	main(void) 
+{
+	{
+		std::cout << "** Testing Inventory **" << std::endl << std::endl;
 
-	/*	{
 		Ice			*ice = new Ice();
 		Ice			*ice2 = new Ice();
 		Cure		*cure = new Cure();
 		Cure		*cure2 = new Cure();
+		Cure		*test = new Cure();
+		
+		std::cout << std::endl;
+		
 		Character	*char1 = new Character("KARL");
 
 		std::cout << std::endl;
 
-		std::cout << ice->getType() << std::endl;
-		std::cout << ice << std::endl;
-		
-		std::cout << std::endl;
-
-		std::cout << ice2->getType() << std::endl;
-		std::cout << ice2 << std::endl;
-		
-		std::cout << std::endl;
-
-		std::cout << cure->getType() << std::endl;
-		std::cout << cure << std::endl;
-		
-		std::cout << std::endl;
-
-		std::cout << cure2->getType() << std::endl;
-		std::cout << cure2 << std::endl;
-		
-		std::cout << std::endl;
+		std::cout << ice->getType() << " - " << ice << std::endl;
+		std::cout << ice2->getType() << " - " << ice2 << std::endl;
+		std::cout << cure->getType() << " - " << cure << std::endl;
+		std::cout << cure2->getType() << " - " << cure2 << std::endl << std::endl;
 
 		char1->equip(ice);
 		char1->equip(ice2);
 		char1->equip(cure);
 		char1->equip(cure2);
+		
+		//Testing Full Inverntory
+		char1->equip(test);
+		std::cout << char1->getInventory(5) << std::endl;
 
+		std::cout << "Char: " << char1->getName() << std::endl << std::endl;
 
-		std::cout << char1->getName() << std::endl;
-		std::cout << std::endl;
-		for (int i = 0; i < 4; i++)
-		{
+		std::cout << "Inventory" << std::endl;
+		for (int i = 0; i < 4; i++)	{
+			std::cout << char1->getInventory(i)->getType() << " - ";
 			std::cout << char1->getInventory(i) << std::endl;
-			std::cout << char1->getInventory(i)->getType() << std::endl;
-			// std::cout << std::endl;
 		}
-		std::cout << std::endl;
+		
 		char1->unequip(2);
-		for (int i = 0; i < 4; i++)
-		{
+		
+		std::cout << std::endl;
+		std::cout << "Materia [2] unequiped" << std::endl;
+		for (int i = 0; i < 4; i++)	{
 			std::cout << char1->getInventory(i) << std::endl;
-			// std::cout << char1->getInventory(i)->getType() << std::endl;
-			// std::cout << std::endl;
 		}
-		// std::cout << char1 << std::endl;
-	}*/
+		std::cout << "*************************************" << std::endl << std::endl;
 
-	/*{
-		Character	*c1 = new Character("Abby");
-		Character	*c2 = new Character("Bob");
-
-		Ice			*ice = new Ice("Ice");
-
-		std::cout << c1->getName() << std::endl;
-		std::cout << c2->getName() << std::endl;
-
-		std::cout << c1->getInventory(0) << std::endl;
-		std::cout << c2->getInventory(0) << std::endl;
-
-		c1->equip(ice);
-		// c1->unequip(0);
-		c1->use(0, *c2);
-
-		std::cout << c1->getInventory(0)->getType() << std::endl;
-	}*/
-
+		delete char1;
+		delete cure;
+		delete test;
+	}
 	{
 		IMateriaSource* src = new MateriaSource();
+
+		std::cout << std::endl;
 		src->learnMateria(new Ice());
+		std::cout << std::endl;
 		src->learnMateria(new Cure());
+		std::cout << std::endl;
+		
 		ICharacter* me = new Character("me");
+		std::cout << std::endl;
+		
 		AMateria* tmp;
+		
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
+		
 		ICharacter* bob = new Character("bob");
+		
 		std::cout << std::endl;
 		me->use(0, *bob);
 		std::cout << std::endl;
 		me->use(1, *bob);
 		std::cout << std::endl;
+		
+		//Texting an unequiped materia;
+		me->use(2, *bob);
+		me->unequip(2);
+
+
 		delete bob;
 		delete me;
 		delete src;
 	}
-
 }

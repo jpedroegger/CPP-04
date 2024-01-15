@@ -61,7 +61,9 @@ void	Character::freeInventory(void) {
 }
 
 AMateria*	Character::getInventory(int	i) const {
-	return this->inventory[i];
+	if (i >= 0 && i <= 4)
+		return this->inventory[i];
+	return NULL;
 }
 
 void	Character::equip(AMateria *m) {
@@ -76,10 +78,14 @@ void	Character::equip(AMateria *m) {
 }
 
 void	Character::unequip(int idx) {
-	this->inventory[idx] = NULL;
+	if (idx >= 0 && idx <= 4)
+		if (this->inventory[idx])
+			this->inventory[idx] = NULL;
 	return ;
 }
 void	Character::use(int idx, ICharacter& target) {
-	this->inventory[idx]->use(target);
+	if (idx >= 0 && idx <= 4)
+		if (this->inventory[idx])
+			this->inventory[idx]->use(target);
 	return ;
 }

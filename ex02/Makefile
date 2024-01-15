@@ -1,20 +1,22 @@
-CC = c++
+CXX = c++
 RM = rm -rf
-OBJS = Dog.o Cat.o Animal.o Brain.o
-FLAGS = -Wall -Werror -Wextra -ggdb3 -std=c++98
-NAME = brain
+SRC = Dog.cpp Cat.cpp Animal.cpp \
+		Brain.cpp main.cpp
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+NAME = aanimal
+OBJ = $(SRC:.cpp=.o)
 
-all: $(OBJS)
-		$(CC) $(FLAGS) main.cpp $(OBJS) -o $(NAME)
+all: $(NAME)
 
-%.o: %.c
-		$(CC) -c $^
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-		rm -rf $(OBJS)
+		rm -rf $(OBJ)
 
 fclean: clean
 		rm -rf $(NAME)
 
-re: fclean
-		$(MAKE)	
+re: fclean all
+
+.PHONY: all, clean, fclean, re

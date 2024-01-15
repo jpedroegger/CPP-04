@@ -10,7 +10,7 @@ Cure::Cure(std::string const &type) : AMateria(type) {
 	this->type = "cure";
 }
 
-Cure::Cure(const Cure &src) {
+Cure::Cure(const Cure &src) : AMateria(src){
 	std::cout << "Cure copy constructor called." << std::endl; 
 	*this = src;
 }

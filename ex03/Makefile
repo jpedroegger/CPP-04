@@ -1,20 +1,22 @@
-CC = c++
+CXX = c++
 RM = rm -rf
-OBJS = AMateria.o Cure.o Ice.o Character.o MateriaSource.o
-FLAGS = -Wall -Werror -Wextra -ggdb3 -std=c++98
+SRC = AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp \
+	main.cpp
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 NAME = interface
+OBJ = $(SRC:.cpp=.o)
 
-all: $(OBJS)
-		$(CC) $(FLAGS) main.cpp $(OBJS) -o $(NAME)
+all: $(NAME)
 
-%.o: %.c
-		$(CC) -c $^
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-		rm -rf $(OBJS)
+		rm -rf $(OBJ)
 
 fclean: clean
 		rm -rf $(NAME)
 
-re: fclean
-		$(MAKE)	
+re: fclean all
+
+.PHONY: all, clean, fclean, re

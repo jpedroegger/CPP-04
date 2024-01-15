@@ -13,7 +13,7 @@ public:
 	Cat();
 	Cat(const Cat &src);
 	Cat&	operator=(const Cat &rhs);
-	~Cat();
+	virtual ~Cat();
 
 	void		makeSound(void) const;
 	std::string	getType(void) const;
