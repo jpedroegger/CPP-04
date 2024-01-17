@@ -29,7 +29,7 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource &rhs){
 MateriaSource::~MateriaSource(){
 	std::cout << "MateriaSource destructor called." << std::endl;
 	for (int i = 0; i < 4; i++) {
-		if (this->skills)
+		if (this->skills[i])
 		{
 			delete this->skills[i];
 		 	this->skills[i] = NULL;

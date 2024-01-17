@@ -50,11 +50,12 @@ int	main(void)
 		for (int i = 0; i < 4; i++)	{
 			std::cout << char1->getInventory(i) << std::endl;
 		}
-		std::cout << "*************************************" << std::endl << std::endl;
 
-		delete char1;
-		delete cure;
 		delete test;
+		delete cure;
+		delete char1;
+		std::cout << std::endl;
+		std::cout << "*************************************" << std::endl << std::endl;
 	}
 	{
 		IMateriaSource* src = new MateriaSource();

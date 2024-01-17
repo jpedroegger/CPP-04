@@ -14,9 +14,9 @@ int	main(void)
 		std::cout << std::endl;
 	    delete i;
 		std::cout << std::endl;
-		
-		std::cout << "*********************************" << std::endl;
-		std::cout << std::endl;
+	}
+	{
+		std::cout << "*********************************" << std::endl << std::endl;
 
 	    Dog basic;
 	    {

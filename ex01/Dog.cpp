@@ -23,8 +23,8 @@ Dog&	Dog::operator=(const Dog &rhs){
 }
 
 Dog::~Dog(){
-	std::cout << "Dog destructor called." << std::endl; 
 	delete this->brain;
+	std::cout << "Dog destructor called." << std::endl; 
 }
 
 std::string	Dog::getType(void) const{
